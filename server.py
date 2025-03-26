@@ -1,9 +1,6 @@
 from flask import Flask, request
-import json
 import base64
-import sympy
 from sympy import factor, expand, apart, expand_trig
-import math
 from TypstCalculatorServer import TypstCalculatorServer, VERSION
 
 app = Flask(__name__)
