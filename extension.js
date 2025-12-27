@@ -204,7 +204,7 @@ function activate(context) {
                     let editor = vscode.window.activeTextEditor
                     if (!editor) { return }
                     editor.edit((edit) => {
-                        edit.replace(selection, data)
+                        edit.insert(selection.end, ' = ' + data)
                     })
                 }, (err) => {
                     vscode.window.showErrorMessage(err)
@@ -230,7 +230,7 @@ function activate(context) {
                     let editor = vscode.window.activeTextEditor
                     if (!editor) { return }
                     editor.edit((edit) => {
-                        edit.replace(selection, data)
+                        edit.insert(selection.end, ' => ' + data)
                     })
                 }, (err) => {
                     vscode.window.showErrorMessage(err)
@@ -257,7 +257,7 @@ function activate(context) {
                     let editor = vscode.window.activeTextEditor
                     if (!editor) { return }
                     editor.edit((edit) => {
-                        edit.replace(selection, data)
+                        edit.insert(selection.end, ' = ' + data)
                     })
                 }, (err) => {
                     vscode.window.showErrorMessage(err)
@@ -284,7 +284,7 @@ function activate(context) {
                     let editor = vscode.window.activeTextEditor
                     if (!editor) { return }
                     editor.edit((edit) => {
-                        edit.replace(selection, data)
+                        edit.insert(selection.end, ' = ' + data)
                     })
                 }, (err) => {
                     vscode.window.showErrorMessage(err)

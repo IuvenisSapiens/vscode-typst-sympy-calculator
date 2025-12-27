@@ -1,6 +1,6 @@
 from flask import Flask, request
 import base64
-from sympy import factor, expand, apart, expand_trig
+from sympy import factor, expand, apart, expand_trig, factorint, Integer
 from TypstCalculatorServer import TypstCalculatorServer, VERSION
 
 app = Flask(__name__)
@@ -93,8 +93,20 @@ def post_solve():
 @app.route('/factor', methods=['POST'])
 def post_factor():
     try:
+        parsed_math = subs(base64_decode(request.json['typst_math']), base64_decode(request.json['typst_file']))
+        if isinstance(parsed_math, Integer):
+            number = int(parsed_math)
+            # 计算素数分解
+            factors = factorint(number)
+            # 将结果转换为 typst 格式
+            result_typst = " times ".join(
+                f"{base}^{(exp)}" if exp > 1 else f"{base}"
+                for base, exp in factors.items()
+            )
+        else:
+            result_typst = typst(factor(parsed_math))
         return {
-            'data': typst(factor(subs(base64_decode(request.json['typst_math']), base64_decode(request.json['typst_file'])))),
+            'data': result_typst,
             'error': ''
         }
     except Exception as e:
