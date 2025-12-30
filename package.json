@@ -4,7 +4,7 @@
   "publisher": "IuvenisSapiens",
   "description": "VS Code extension for Typst math calculating, includes Arithmetic, Calculous, Matrix, Custom Variances and Funcions by yourself",
   "icon": "icon.png",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "engines": {
     "vscode": "^1.107.0"
   },

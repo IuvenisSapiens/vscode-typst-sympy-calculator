@@ -1,6 +1,18 @@
 from flask import Flask, request
 import base64
 from sympy import factor, expand, apart, expand_trig, factorint, Integer
+from sympy import (
+    EulerGamma,
+    GoldenRatio,
+    Catalan,
+    TribonacciConstant,
+    pi,
+    E,
+    I,
+    oo,
+    nan,
+    zoo,
+)
 from TypstCalculatorServer import TypstCalculatorServer, VERSION
 
 app = Flask(__name__)
